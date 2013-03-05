@@ -1,0 +1,95 @@
+.TH pict2pdf 1 "1 Nov 2002" "version 1.1"
+.SH NAME
+.B pict2pdf 
+- convert Apple PICT files to Adobe PDF format
+.SH SYNOPSIS
+.B pict2pdf [-fv] [-r angle] [-s scale] [-h height] [-w width] [-b borderwidth]
+.I "file1 " "[file2]
+.SH DESCRIPTION
+.B pict2pdf
+converts files in Apple's PICT format to Adobe's PDF format.  The
+conversion retains any vector information in the PICT image.  The
+new PDF file will be created in the same directory as the PICT file
+but with the extension .pdf.  The extension will be appended to the 
+PICT file name if the PICT file does not end with .pict (or .PICT), otherwise
+the .pict extension will be replaced.
+.SH OPTIONS
+.TP 8
+.B  -b borderwidth
+will draw a bounding rectangle in the 
+pdf image with a thickness equal to
+.B borderwidth
+pixels.
+.TP 8
+.B -f
+force an existing PDF files to be overwritten
+.TP 8
+.B  "-h " height
+sets the height of the pdf image to 
+.B height
+pixels (1/72 inch).  If 
+.B -w height
+is not used, then
+the entire image is uniformly scaled to reach
+.B height.
+If 
+.B -w width
+is specified, then this parameter only affects
+vertical scaling.
+.TP 8
+.B  -r angle
+the PICT image will be rotated counter-clockwise by angle degrees
+before conversion to the PDF image
+.TP 8
+.B "-s " scale
+magnify the PICT image by a scale factor.  If scale is 0.5
+then the PDF image will one-half the size of 
+the original PICT image.
+.TP 8
+.B  -v
+print version info
+.TP 8
+.B  -w width
+sets the width of the pdf image to 
+.B width
+pixels (1/72 inch).  If 
+.B -h height
+is not used, then
+the entire image is uniformly scaled to reach
+.B width.
+If 
+.B "-h " height
+is specified, then this parameter only affects
+horizontal scaling.
+
+.SH EXAMPLES
+.TP
+.B pict2pdf sample.pict
+will produce 
+.I sample.pdf 
+in the same directory.  If 
+.I sample.pdf 
+already exists
+then the program exits normally
+.TP
+.B pict2pdf -h 72 -w 144 sample.pict 
+will create a 1 inch high by 2 inches wide image in
+.I sample.pdf 
+.TP
+.B pict2pdf -r 45 -s 0.75 sample.pict
+will rotate 
+.I sample.pict 
+45 degrees CCW and the image in
+.I sample.pdf 
+will be 3/4 of the original PICT size.
+
+.SH BUGS
+.B pict2pdf
+only works under MacOS X.
+.P
+No support for stdin/stdout.
+
+.SH AUTHOR
+Scott Prahl <prahl@ece.ogi.edu>
+.P
+homepage http://sourceforge.net/projects/pict2pdf/

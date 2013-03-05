@@ -1,0 +1,8 @@
+*DS_Store*
+Makefile
+*.cache
+config.h
+*~
+*.log
+*.status
+stamp-h*
