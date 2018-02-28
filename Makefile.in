@@ -1,7 +1,7 @@
 VERSION = 1.1
 
 DEVELOPER_DIR = @DEVELOPER_DIR@
-CC ?= @CC@
+CC = @CC@
 CFLAGS += -g -Wall 
 CPPFLAGS += -I$(DEVELOPER_DIR)/Headers/FlatCarbon -I./QD
 LD ?= @CC@
