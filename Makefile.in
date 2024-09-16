@@ -6,7 +6,7 @@ CFLAGS += -g -Wall
 CPPFLAGS += -I$(DEVELOPER_DIR)/Headers/FlatCarbon -I./QD
 LD ?= @CC@
 LDFLAGS += -framework ApplicationServices
-RM = @RM@ -rf
+RM = @RM_PROG@ -rf
 SRC = Makefile pict2pdf.c
 DOC = README 
 TEST = sample.pict sample.orig.pdf
@@ -64,3 +64,9 @@ dist: $(SRC) $(MANPAGES) $(DOC) $(TEST)
 clean:
 	$(RM) $(PROG) $(OBJS) $(HTMLDOC) sample.pdf
 	$(RM) $(DISTNAME) $(DISTNAME).tar.gz $(DISTNAME).dmg
+.PHONY: clean
+
+distclean: clean
+	$(RM) autom4te.cache || rmdir autom4te.cache
+	$(RM) autoscan.log *~ build-aux/*~ config.log config.status Makefile stamp-h1
+.PHONY: distclean
