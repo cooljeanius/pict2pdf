@@ -7,3 +7,5 @@ build-aux/missing linguist-vendored
 config.h.in linguist-generated
 configure linguist-generated
 configure.scan linguist-generated
+m4/ax_prog_scp.m4 linguist-vendored
+m4/EbgMacOSXOptions.m4 linguist-vendored
